@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/options1"
+        android:title="@string/navUpOptions1"
+        android:visible="true"/>
+
+    <item
+        android:id="@+id/options2"
+        android:title="@string/navUpOptions2"
+        android:visible="true" />
+
+    <item
+        android:id="@+id/options3"
+        android:title="@string/navUpOptions3" />
+</menu>
