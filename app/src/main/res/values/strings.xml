@@ -1,16 +1,24 @@
 <resources>
     <string name="app_name">Movie Library</string>
-    <string name="temperature_label">Температура</string>
-    <string name="feels_like_label">Ощущается как</string>
-    <string name="city_coordinates">lt/ln: %s, %s"</string>
     <string name="toolName">Movie Library</string>
     <string name="todo">TODO</string>
     <string name="movie_library">Movie Library</string>
+
     <string name="navUpOptions1">Сегодня в кино</string>
     <string name="navUpOptions2">Топ лучших фильмов</string>
     <string name="navUpOptions3">Поиск фильмов</string>
+
     <string name="head">Бегущий по лезвию 2049</string>
     <string name="example">imdb 8.5</string>
     <string name="example2">Фантастика</string>
-    <string name="сustomMenuName">Жанр фильмов</string>
+    <string name="example3">Жанр фантастика</string>
+
+    <string name="_2015">год 2015</string>
+    <string name="customMenuName">Жанр фильмов</string>
+
+    <string name="text">В недалеком будущем мир населен людьми и репликантами, созданными выполнять самую тяжелую работу. Работа офицера полиции Кей - держать репликантов под контролем в условиях нарастающего напряжения… Пока он случайно не становится обладателем секретной информации, которая ставит под угрозу существование всего человечества. Желая найти ключ к разгадке, Кей решает разыскать Рика Декарда, бывшего офицера специального подразделения полиции Лос-Анджелеса, который бесследно исчез много лет назад.</string>
+    <string name="rating">Рейтинг</string>
+    <string name="setting">Setting</string>
+    <string name="info">Info</string>
+    <string name="darkTheme">DarkTheme</string>
 </resources>

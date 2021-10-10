@@ -13,9 +13,21 @@ class FragmentOneViewModel(private val repository: Repository) : ViewModel(), Li
 
     private fun getListFilmLocal() {
         liveData.value = AppState.Loading
+
         Thread {
-            sleep(0)
-            liveData.postValue(AppState.Success(repository.getListFilmLocal()))
+            liveData.postValue(AppState.SuccessRecyclerFilm(repository.getListFilmLocal()))
         }.start()
+    }
+
+    fun getInfoFilm(positions: Int){
+        liveData.value = AppState.LoadingInfo
+
+        Thread {
+            liveData.postValue(AppState.SuccessInfoDetails(repository.getInfoFilm(positions)))
+        }.start()
+    }
+
+    fun createListFilm(){
+        repository.createListFilm()
     }
 }
