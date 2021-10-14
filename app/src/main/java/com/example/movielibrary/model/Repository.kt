@@ -1,6 +1,7 @@
 package com.example.movielibrary.model
 
 interface Repository {
-    fun getWeatherFromServer(): Film
     fun getListFilmLocal(): ArrayList<Film>
+    fun getInfoFilm(position: Int): InfoFilm
+    fun createListFilm()
 }

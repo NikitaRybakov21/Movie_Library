@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
-        android:layout_width="220dp"
-        android:layout_height="68dp"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="180dp"
-        android:backgroundTint="#BEC0CC"
+        android:layout_marginTop="150dp"
+        android:backgroundTint="#DBDCE4"
         app:cardCornerRadius="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,19 +22,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/head"
             android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textSize="12sp" />
+    </com.google.android.material.card.MaterialCardView>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardPoster"
-        android:layout_width="220dp"
-        android:layout_height="200dp"
+        android:layout_width="120dp"
+        android:layout_height="160dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        app:cardElevation="15dp"
         android:backgroundTint="#2E2F33"
         app:cardCornerRadius="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +46,7 @@
 
             <ImageView
                 android:id="@+id/posterView"
-                android:layout_width="135dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
@@ -53,19 +54,65 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <View
+                android:layout_width="48dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFA726"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/posterView" />
+
             <TextView
                 android:id="@+id/imdb"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginStart="4dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/example"
-                android:textColor="#BEC0C6"
-                android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@+id/posterView"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textColor="#1A1B25"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/posterView"
+                tools:ignore="SmallSp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="197dp"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="10dp"
+        android:background="#D9DADF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/example3"
+        android:textColor="#474851"
+        android:textSize="9sp"
+        app:layout_constraintStart_toEndOf="@+id/cardPoster"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/_2015"
+        android:textColor="#474851"
+        android:textSize="9sp"
+        app:layout_constraintStart_toEndOf="@+id/cardPoster"
+        app:layout_constraintTop_toBottomOf="@+id/genre"
+        tools:ignore="SmallSp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E7E6ED"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewDetails"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="180dp"
+        android:backgroundTint="#BEC0CC"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/filmNameDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/head"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPosterDetails"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#2E2F33"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/posterViewDetails"
+                android:layout_width="135dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop"
+                android:src="@drawable/film3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/yearIntDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:text="2017"
+                android:textColor="#EFF0F3"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/posterViewDetails"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/countryStringDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="1dp"
+                android:text="США"
+                android:textColor="#EFF0F3"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/posterViewDetails"
+                app:layout_constraintTop_toBottomOf="@+id/yearIntDetails" />
+
+            <TextView
+                android:id="@+id/directorStringDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:text="Дени Вильнёв"
+                android:textColor="#EFF0F3"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/posterViewDetails"
+                app:layout_constraintTop_toBottomOf="@+id/countryStringDetails" />
+
+            <TextView
+                android:id="@+id/budgetInt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:text="300 000 000 $"
+                android:textColor="#EFF0F3"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/posterViewDetails"
+                app:layout_constraintTop_toBottomOf="@+id/directorStringDetails" />
+
+            <TextView
+                android:id="@+id/countryDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Страна"
+                android:textColor="#A9AAAC"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/posterViewDetails"
+                app:layout_constraintTop_toBottomOf="@+id/yearDetails" />
+
+            <TextView
+                android:id="@+id/directorDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Режиссёр"
+                android:textColor="#A9AAAC"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/posterViewDetails"
+                app:layout_constraintTop_toBottomOf="@+id/countryDetails" />
+
+            <TextView
+                android:id="@+id/yearDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Год производства"
+                android:textColor="#A9AAAC"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/posterViewDetails"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/budget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Бюджет"
+                android:textColor="#A9AAAC"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/posterViewDetails"
+                app:layout_constraintTop_toBottomOf="@+id/directorDetails" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Описание"
+        android:textColor="#4D4E55"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewDetails"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <TextView
+        android:id="@+id/textStringDescriptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/rating"
+        android:textColor="#4D4E55"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStringDescriptions" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardRating"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/containerRating"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textViewRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="7dp"
+        android:text="Рейтинг кинокритиков 85%"
+        android:textColor="#4D4E55"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardRating"
+        tools:ignore="SmallSp" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="50dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="7dp"
+        android:background="#FFA726"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardRating" />
+
+    <TextView
+        android:id="@+id/imdb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="@string/example"
+        android:textColor="#1A1B25"
+        android:textSize="10sp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardRating"
+        tools:ignore="SmallSp" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="50dp"
+        android:layout_height="15dp"
+        android:background="#FFA726"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintEnd_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/cardRating" />
+
+    <TextView
+        android:id="@+id/kp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="20dp"
+        android:text="kp 8.2"
+        android:textColor="#1A1B25"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/cardRating"
+        tools:ignore="SmallSp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

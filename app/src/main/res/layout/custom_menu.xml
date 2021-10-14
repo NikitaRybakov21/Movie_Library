@@ -3,23 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="47dp">
+    android:layout_height="32dp">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="160dp"
-        android:layout_height="45dp"
-        android:background="#C4C6CD"
-        tools:ignore="MissingConstraints" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/customMenuText"
-        android:layout_width="160dp"
-        android:layout_height="45dp"
-        android:textColor="#494C5E"
-        android:gravity="center"
-        android:text="@string/example2"
-        android:textSize="16sp"
-        tools:ignore="MissingConstraints" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:background="#ECF6F1"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/customMenuText"
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/example2"
+            android:textColor="#494C5E"
+            android:textSize="16sp"
+            tools:ignore="MissingConstraints" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
