@@ -20,5 +20,17 @@
     <string name="rating">Рейтинг</string>
     <string name="setting">Setting</string>
     <string name="info">Info</string>
-    <string name="darkTheme">DarkTheme</string>
+
+    <string name="Details">Details</string>
+
+    <string name="genre1">Все</string>
+    <string name="genre2">Фантастика</string>
+    <string name="genre3">Драма</string>
+    <string name="genre4">Комедия</string>
+    <string name="genre5">Боевик</string>
+    <string name="genre6">Детский</string>
+    <string name="genre7">Детектив</string>
+    <string name="genre8">Триллер</string>
+    <string name="genre9">Хоррор</string>
+
 </resources>

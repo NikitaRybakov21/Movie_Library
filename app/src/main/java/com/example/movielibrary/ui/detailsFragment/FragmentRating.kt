@@ -27,7 +27,6 @@ class FragmentRating : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         val percent = arguments?.getInt("KEY")
 
         val view = inflater.inflate(R.layout.rating_fragment,container,false)
@@ -44,7 +43,7 @@ class FragmentRating : Fragment() {
         private var speed = 0f
         private var startSpeed = 6f
 
-        @SuppressLint("DrawAllocation")
+        @SuppressLint("DrawAllocation", "ResourceAsColor")
         override fun onDraw(canvas: Canvas?) {
             super.onDraw(canvas)
 
@@ -57,15 +56,17 @@ class FragmentRating : Fragment() {
             myRectRed.set((width * temp).toInt(), 0, width, height)
 
             paint.color = Color.rgb(69, 204, 90)
-            canvas!!.drawRect(myRectGreen,paint)
+            canvas?.drawRect(myRectGreen, paint)
 
             paint.color = Color.RED
-            canvas.drawRect(myRectRed,paint)
+            canvas?.drawRect(myRectRed, paint)
 
-            if(count <= percent!!) {
-                invalidate()
-                count += speed
-                speed = startSpeed - startSpeed * (count / percent)
+            if(percent != null) {
+                if(count <= percent) {
+                    invalidate()
+                    count += speed
+                    speed = startSpeed - startSpeed * (count / percent)
+                }
             }
         }
 
