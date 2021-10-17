@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import com.example.movielibrary.databinding.FragmentOneBinding
 import com.example.movielibrary.model.Film
 import com.example.movielibrary.model.InfoFilm
 import com.example.movielibrary.ui.main.MainActivity
+import com.example.movielibrary.ui.main.setToast
 import com.example.movielibrary.viewModel.AppState
 import com.example.movielibrary.viewModel.FragmentOneViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -93,15 +95,15 @@ class FragmentOne : Fragment() {
 
         listGenre.clear()
 
-        listGenre.add("Все")
-        listGenre.add("Фантастика")
-        listGenre.add("Драма")
-        listGenre.add("Комедия")
-        listGenre.add("Боевик")
-        listGenre.add("Детский")
-        listGenre.add("Детектив")
-        listGenre.add("Триллер")
-        listGenre.add("Хоррор")
+        listGenre.add(getString(R.string.genre1))
+        listGenre.add(getString(R.string.genre2))
+        listGenre.add(getString(R.string.genre3))
+        listGenre.add(getString(R.string.genre4))
+        listGenre.add(getString(R.string.genre5))
+        listGenre.add(getString(R.string.genre6))
+        listGenre.add(getString(R.string.genre7))
+        listGenre.add(getString(R.string.genre8))
+        listGenre.add(getString(R.string.genre9))
 
         for (i in 0 until listGenre.size) {
             customView = layoutInflater.inflate(R.layout.custom_menu, container, false)
@@ -109,12 +111,17 @@ class FragmentOne : Fragment() {
             val textView = customView.findViewById<TextView>(R.id.customMenuText)
             textView.text = listGenre[i]
 
+            customView.findViewById<View>(R.id.genreCard).setOnClickListener {
+                setToast(listGenre[i])
+            }
+
             linearLayout.addView(customView)
         }
     }
 
     fun clickedRecycler(positions: Int) {
         viewModel.getInfoFilm(positions)
+        setToast(getString(R.string.Details))
     }
 
     private fun addFragmentDetails(infoFilm: InfoFilm){
