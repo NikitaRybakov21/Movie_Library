@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.movielibrary.R
-import com.example.movielibrary.model.InfoFilm
+import com.example.movielibrary.model.Film
 
 class DetailsFragmentFilm : Fragment() {
 
     companion object{
-        fun newInstance(infoFilm: InfoFilm) : DetailsFragmentFilm {
+        fun newInstance(infoFilm: Film) : DetailsFragmentFilm {
             val detailsFragmentFilm = DetailsFragmentFilm()
             val bundle = Bundle()
             bundle.putParcelable("KEY",infoFilm)
@@ -31,7 +32,7 @@ class DetailsFragmentFilm : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val infoFilm = arguments?.getParcelable<InfoFilm>("KEY")
+        val infoFilm = arguments?.getParcelable<Film>("KEY")
 
         val posterView = view.findViewById<ImageView>(R.id.posterViewDetails)
         val textView = view.findViewById<TextView>(R.id.filmNameDetails)
@@ -44,19 +45,21 @@ class DetailsFragmentFilm : Fragment() {
         val kp = view.findViewById<TextView>(R.id.kp)
         val description = view.findViewById<TextView>(R.id.textStringDescriptions)
 
-        infoFilm!!
-        posterView.setImageResource(infoFilm.imagePoster)
-        textView.text = infoFilm.filmName
+        if(infoFilm != null) {
+            Glide.with(posterView).load(infoFilm.imagePoster).into(posterView)
+            textView.text = infoFilm.filmName
 
-    /*  year.text     =
-        country.text  =
-        director.text =
-        budget.text   =
-        imdb.text     =
-        kp.text       =
-        description   = */
+            year.text = infoFilm.year.toString()
+            imdb.text = "imdb " + infoFilm.rating.toString()
+            description.text = infoFilm.description
+            budget.text = infoFilm.budget.toString() + "$"
 
-        setRatingFragment(90)
+            country.text = "_"
+            director.text = "_"
+            kp.text = "kp " + "_"
+
+            setRatingFragment(infoFilm.rating.toInt() * 10)
+        }
     }
 
     private fun setRatingFragment(ratingPercent: Int){

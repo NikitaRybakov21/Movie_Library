@@ -1,28 +1,41 @@
 package com.example.movielibrary.model
 
-import com.example.movielibrary.R
+import android.os.Build
+import androidx.annotation.RequiresApi
+import com.example.movielibrary.model.rest.LoadMovie
 
 class RepositoryImpl : Repository {
-    var listFilm : ArrayList<Film> = ArrayList(16)
+    private var listFilm: ArrayList<Film> = ArrayList(16)
+    private var flag = true
 
-    override fun getListFilmLocal() = listFilm
-
-    override fun createListFilm() {
+    @RequiresApi(Build.VERSION_CODES.N)
+    override fun getListFilm(listCinemaID: List<Int>): ArrayList<Film> {
         listFilm.clear()
+        loadMovie(listCinemaID)
 
-        listFilm.add(Film("Blade Runner 2049", R.drawable.film3, 8.0f,"Фантастика",2017))
-        listFilm.add(Film("Casablanca", R.drawable.film1 , 8.5f,"Мелодрамма",1942))
-        listFilm.add(Film("Pulp fiction", R.drawable.film2 , 8.9f,"Криминал",1994))
-        listFilm.add(Film("Tenet", R.drawable.film4 , 7.4f,"Фантастика",2020))
+        return listFilm
     }
 
-    override fun getInfoFilm(position: Int): InfoFilm {
+    override fun getInfoFilm(position: Int): Film {
         val film = listFilm[position]
 
-        Thread.sleep(700)
+        Thread.sleep(200)
+        return film
+    }
 
-        return InfoFilm(film.filmName,film.imagePoster)
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun loadMovie(listCinemaID: List<Int>){
+        for (i in listCinemaID.indices) {
+            val film = LoadMovie.loadMovie(listCinemaID[i])
+
+            if (film != null) {
+                listFilm.add(Film(film.name, film.poster.url, film.rating.imdb, film.genres[0].name,
+                                  film.year, film.description, "_ "))
+            }
+        }
     }
 
 }
+
+
     

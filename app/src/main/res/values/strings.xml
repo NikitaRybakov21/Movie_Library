@@ -16,7 +16,6 @@
     <string name="_2015">год 2015</string>
     <string name="customMenuName">Жанр фильмов</string>
 
-    <string name="text">В недалеком будущем мир населен людьми и репликантами, созданными выполнять самую тяжелую работу. Работа офицера полиции Кей - держать репликантов под контролем в условиях нарастающего напряжения… Пока он случайно не становится обладателем секретной информации, которая ставит под угрозу существование всего человечества. Желая найти ключ к разгадке, Кей решает разыскать Рика Декарда, бывшего офицера специального подразделения полиции Лос-Анджелеса, который бесследно исчез много лет назад.</string>
     <string name="rating">Рейтинг</string>
     <string name="setting">Setting</string>
     <string name="info">Info</string>
@@ -32,5 +31,17 @@
     <string name="genre7">Детектив</string>
     <string name="genre8">Триллер</string>
     <string name="genre9">Хоррор</string>
+    <string name="genre10">Вестерн</string>
+    <string name="genre11">Мюзикл</string>
+    <string name="genre12">Спорт</string>
 
+    <string name="imdb">Топ лучших фильмов по версии IMDB</string>
+    <string name="head2">Описание</string>
+
+    <string name="headTitle">Бюджет</string>
+    <string name="headTitle2">Год производства</string>
+    <string name="headTitle3">Режиссёр</string>
+    <string name="headTitle4">Страна</string>
+
+    <string name="ratingTitle">Рейтинг кинокритиков _</string>
 </resources>

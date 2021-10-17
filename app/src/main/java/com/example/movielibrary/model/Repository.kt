@@ -1,7 +1,6 @@
 package com.example.movielibrary.model
 
 interface Repository {
-    fun getListFilmLocal(): ArrayList<Film>
-    fun getInfoFilm(position: Int): InfoFilm
-    fun createListFilm()
+    fun getListFilm(listCinemaID: List<Int>): ArrayList<Film>
+    fun getInfoFilm(position: Int): Film
 }

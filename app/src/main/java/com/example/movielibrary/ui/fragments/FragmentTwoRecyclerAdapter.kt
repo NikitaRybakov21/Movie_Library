@@ -12,8 +12,8 @@ import com.bumptech.glide.Glide
 import com.example.movielibrary.R
 import com.example.movielibrary.model.Film
 
-class FragmentOneRecyclerAdapter(private val listFilm: ArrayList<Film>, private val fragment: FragmentOne) :
-    RecyclerView.Adapter<FragmentOneRecyclerAdapter.NewViewHolder>() {
+class FragmentTwoRecyclerAdapter(private val listFilm: ArrayList<Film>, private val fragment: FragmentTwo) :
+    RecyclerView.Adapter<FragmentTwoRecyclerAdapter.NewViewHolder>() {
 
     private val imdbString: String = "imdb "
     private val genreString: String = "Жанр "
@@ -33,6 +33,8 @@ class FragmentOneRecyclerAdapter(private val listFilm: ArrayList<Film>, private 
 
         holder.textViewGenre.text = genreString + listFilm[position].genre
         holder.textViewYear.text = yearString + listFilm[position].year
+        holder.textPositions.text = (position + 1).toString()
+        holder.textPositions.visibility = View.VISIBLE
 
         holder.cardView.setOnClickListener {
             fragment.clickedRecycler(position)
@@ -51,5 +53,6 @@ class FragmentOneRecyclerAdapter(private val listFilm: ArrayList<Film>, private 
 
         val textViewGenre: TextView = itemView.findViewById(R.id.genre)
         val textViewYear: TextView = itemView.findViewById(R.id.year)
+        val textPositions: TextView = itemView.findViewById(R.id.positions)
     }
 }

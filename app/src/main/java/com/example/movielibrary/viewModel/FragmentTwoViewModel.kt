@@ -3,16 +3,16 @@ package com.example.movielibrary.viewModel
 import androidx.lifecycle.*
 import com.example.movielibrary.model.Repository
 
-class FragmentOneViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
+class FragmentTwoViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
     private val liveData = MutableLiveData<AppState>()
 
     fun getLiveData(): LiveData<AppState> = liveData
 
-    fun getListFilm(list: List<Int>) {
+    fun getListFilm(listCinemaID: List<Int>) {
         liveData.value = AppState.Loading
 
         Thread {
-            liveData.postValue(AppState.SuccessRecyclerFilm(repository.getListFilm(list)))
+            liveData.postValue(AppState.SuccessRecyclerFilm(repository.getListFilm(listCinemaID)))
         }.start()
     }
 
@@ -25,3 +25,8 @@ class FragmentOneViewModel(private val repository: Repository) : ViewModel(), Li
     }
 
 }
+
+
+// android:background="#DFEFE7"
+//     android:background="#ACCCBC"
+//     android:background="#FBF8FB"
