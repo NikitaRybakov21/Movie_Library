@@ -5,21 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movielibrary.R
 import com.example.movielibrary.databinding.FragmentOneBinding
 import com.example.movielibrary.model.Film
-import com.example.movielibrary.model.InfoFilm
 import com.example.movielibrary.ui.main.MainActivity
 import com.example.movielibrary.ui.main.setToast
 import com.example.movielibrary.viewModel.AppState
 import com.example.movielibrary.viewModel.FragmentOneViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FragmentOne : Fragment() {
+open class FragmentOne : Fragment() {
     private val viewModel: FragmentOneViewModel by viewModel()
     private var _binding: FragmentOneBinding? = null
     private val binding get() = _binding!!
@@ -29,6 +27,7 @@ class FragmentOne : Fragment() {
     private lateinit var mainActivity: MainActivity
 
     private val listGenre: ArrayList<String> = ArrayList(16)
+    private val cinemaID = listOf(706019,1313395,1227967,409424,1294875)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentOneBinding.inflate(inflater, container, false)
@@ -46,8 +45,7 @@ class FragmentOne : Fragment() {
         val observer = Observer<AppState> { renderData(it) }
         viewModel.getLiveData().observe(viewLifecycleOwner, observer)
 
-        viewModel.createListFilm()
-        viewModel.getListFilm()
+        viewModel.getListFilm(cinemaID)
         createCustomMenu()
     }
 
@@ -68,9 +66,9 @@ class FragmentOne : Fragment() {
                 createRecyclerView(listFilm)
             }
             is AppState.SuccessInfoDetails -> {
-
                 val infoFilm = appState.infoFilm
                 addFragmentDetails(infoFilm)
+
                 setScreenLoading(View.GONE)
             }
             is AppState.Loading -> {
@@ -104,6 +102,9 @@ class FragmentOne : Fragment() {
         listGenre.add(getString(R.string.genre7))
         listGenre.add(getString(R.string.genre8))
         listGenre.add(getString(R.string.genre9))
+        listGenre.add(getString(R.string.genre10))
+        listGenre.add(getString(R.string.genre11))
+        listGenre.add(getString(R.string.genre12))
 
         for (i in 0 until listGenre.size) {
             customView = layoutInflater.inflate(R.layout.custom_menu, container, false)
@@ -121,10 +122,9 @@ class FragmentOne : Fragment() {
 
     fun clickedRecycler(positions: Int) {
         viewModel.getInfoFilm(positions)
-        setToast(getString(R.string.Details))
     }
 
-    private fun addFragmentDetails(infoFilm: InfoFilm){
+    private fun addFragmentDetails(infoFilm: Film){
         mainActivity.addFragmentDetails(infoFilm)
     }
 

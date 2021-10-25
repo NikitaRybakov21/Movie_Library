@@ -3,9 +3,10 @@ package com.example.movielibrary.ui.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.movielibrary.R
-import com.example.movielibrary.model.InfoFilm
+import com.example.movielibrary.model.Film
 import com.example.movielibrary.ui.detailsFragment.DetailsFragmentFilm
 import com.example.movielibrary.ui.fragments.FragmentOne
+import com.example.movielibrary.ui.fragments.FragmentTwo
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         fragmentOne.setMainActivity(this)
     }
 
-    fun addFragmentDetails(infoFilm: InfoFilm){
+    fun addFragmentDetails(infoFilm: Film){
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.containerMain, DetailsFragmentFilm.newInstance(infoFilm))
@@ -41,15 +42,27 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.options1 -> {
-                    // Respond to navigation item 1 click
+                    val fragmentOne = FragmentOne.newInstance()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.containerMain, fragmentOne)
+                        .commit()
+
+                    fragmentOne.setMainActivity(this)
                     true
                 }
                 R.id.options2 -> {
-                    // Respond to navigation item 2 click
+                    val fragmentTwo = FragmentTwo.newInstance()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.containerMain, fragmentTwo)
+                        .commit()
+
+                    fragmentTwo.setMainActivity(this)
                     true
                 }
                 R.id.options3 -> {
-                    // Respond to navigation item 2 click
+
                     true
                 }
                 else -> false

@@ -34,9 +34,9 @@
         android:layout_height="160dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
-        app:cardElevation="15dp"
         android:backgroundTint="#2E2F33"
         app:cardCornerRadius="16dp"
+        app:cardElevation="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -50,7 +50,6 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/film3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,5 +113,17 @@
         app:layout_constraintStart_toEndOf="@+id/cardPoster"
         app:layout_constraintTop_toBottomOf="@+id/genre"
         tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/positions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textColor="#474851"
+        android:textSize="30sp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
