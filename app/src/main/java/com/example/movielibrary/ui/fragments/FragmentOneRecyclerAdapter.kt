@@ -43,7 +43,7 @@ class FragmentOneRecyclerAdapter(private val listFilm: ArrayList<Film>, private 
         return listFilm.size
     }
 
-    class NewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class NewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val posterView: ImageView = itemView.findViewById(R.id.posterView)
         val textView: TextView = itemView.findViewById(R.id.filmName)
         val textViewRating: TextView = itemView.findViewById(R.id.imdb)

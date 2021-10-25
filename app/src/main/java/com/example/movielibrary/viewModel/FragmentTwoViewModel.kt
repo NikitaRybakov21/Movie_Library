@@ -12,7 +12,7 @@ class FragmentTwoViewModel(private val repository: Repository) : ViewModel(), Li
         liveData.value = AppState.Loading
 
         Thread {
-            liveData.postValue(AppState.SuccessRecyclerFilm(repository.getListFilm(listCinemaID)))
+            liveData.postValue(AppState.SuccessRecyclerFilm(repository.getListFilmTopIMDB(listCinemaID)))
         }.start()
     }
 
@@ -20,13 +20,8 @@ class FragmentTwoViewModel(private val repository: Repository) : ViewModel(), Li
         liveData.value = AppState.LoadingInfo
 
         Thread {
-            liveData.postValue(AppState.SuccessInfoDetails(repository.getInfoFilm(positions)))
+            liveData.postValue(AppState.SuccessInfoDetails(repository.getInfoFilmTop(positions)))
         }.start()
     }
 
 }
-
-
-// android:background="#DFEFE7"
-//     android:background="#ACCCBC"
-//     android:background="#FBF8FB"
