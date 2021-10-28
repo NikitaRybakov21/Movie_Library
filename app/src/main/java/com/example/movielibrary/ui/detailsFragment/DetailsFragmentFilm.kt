@@ -46,6 +46,7 @@ class DetailsFragmentFilm : Fragment() {
         val description = view.findViewById<TextView>(R.id.textStringDescriptions)
 
         if(infoFilm != null) {
+
             Glide.with(posterView).load(infoFilm.imagePoster).into(posterView)
             textView.text = infoFilm.filmName
 

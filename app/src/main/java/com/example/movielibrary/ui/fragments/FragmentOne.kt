@@ -1,9 +1,6 @@
 package com.example.movielibrary.ui.fragments
 
-import android.content.*
 import android.os.Bundle
-import android.os.IBinder
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +12,6 @@ import com.example.movielibrary.R
 import com.example.movielibrary.databinding.FragmentOneBinding
 import com.example.movielibrary.model.Film
 import com.example.movielibrary.ui.main.MainActivity
-import com.example.movielibrary.ui.main.recevier.BoundService
-import com.example.movielibrary.ui.main.recevier.ForegroundService
 import com.example.movielibrary.ui.main.setToast
 import com.example.movielibrary.viewModel.AppState
 import com.example.movielibrary.viewModel.FragmentOneViewModel
@@ -33,9 +28,6 @@ class FragmentOne : Fragment() {
 
     private val listGenre: ArrayList<String> = ArrayList(16)
     private val cinemaID = listOf(706019,1313395,1227967,409424,1294875)
-
-    private var isBound = false
-    private var boundService: BoundService.ServiceBinder? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentOneBinding.inflate(inflater, container, false)
@@ -55,44 +47,6 @@ class FragmentOne : Fragment() {
 
         viewModel.getListFilm(cinemaID)
         createCustomMenu()
-
-        ForegroundService.start(requireContext())
-    }
-
-    private val testReceiver: BroadcastReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent?) {
-            Log.i("SERVICE", "FROM SERVICE:" + " ${intent?.getBooleanExtra(ForegroundService.INTENT_SERVICE_DATA, false)}")
-        }
-    }
-
-    private val boundServiceConnection: ServiceConnection = object : ServiceConnection {
-        override fun onServiceConnected(name: ComponentName, service: IBinder) {
-            boundService = service as BoundService.ServiceBinder
-            isBound = boundService != null
-            Log.i("SERVICE", "BOUND SERVICE")
-        }
-
-        override fun onServiceDisconnected(name: ComponentName) {
-            isBound = false
-            boundService = null
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if(!isBound) {
-            val bindServiceIntent = Intent(context, BoundService::class.java)
-            activity?.bindService(bindServiceIntent, boundServiceConnection, Context.BIND_AUTO_CREATE)
-        }
-        activity?.registerReceiver(testReceiver, IntentFilter(ForegroundService.INTENT_ACTION_KEY))
-    }
-
-    override fun onStop() {
-        activity?.unregisterReceiver(testReceiver)
-        if(isBound) {
-            activity?.unbindService(boundServiceConnection)
-        }
-        super.onStop()
     }
 
     private fun createRecyclerView(listFilm: ArrayList<Film>) {

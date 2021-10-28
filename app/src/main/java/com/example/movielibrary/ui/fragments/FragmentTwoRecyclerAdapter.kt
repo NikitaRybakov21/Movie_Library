@@ -26,8 +26,8 @@ class FragmentTwoRecyclerAdapter(private val listFilm: ArrayList<Film>, private 
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: NewViewHolder, position: Int) {
-        Glide.with(holder.posterView).load(listFilm[position].imagePoster).into(holder.posterView)
 
+        Glide.with(holder.posterView).load(listFilm[position].imagePoster).into(holder.posterView)
         holder.textView.text = listFilm[position].filmName
         holder.textViewRating.text = imdbString + listFilm[position].rating.toString()
 
