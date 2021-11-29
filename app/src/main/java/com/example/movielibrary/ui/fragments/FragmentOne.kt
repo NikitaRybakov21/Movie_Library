@@ -17,7 +17,7 @@ import com.example.movielibrary.viewModel.AppState
 import com.example.movielibrary.viewModel.FragmentOneViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-open class FragmentOne : Fragment() {
+class FragmentOne : Fragment() {
     private val viewModel: FragmentOneViewModel by viewModel()
     private var _binding: FragmentOneBinding? = null
     private val binding get() = _binding!!

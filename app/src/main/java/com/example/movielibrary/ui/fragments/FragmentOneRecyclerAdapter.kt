@@ -26,8 +26,8 @@ class FragmentOneRecyclerAdapter(private val listFilm: ArrayList<Film>, private 
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: NewViewHolder, position: Int) {
-        Glide.with(holder.posterView).load(listFilm[position].imagePoster).into(holder.posterView)
 
+        Glide.with(holder.posterView).load(listFilm[position].imagePoster).into(holder.posterView)
         holder.textView.text = listFilm[position].filmName
         holder.textViewRating.text = imdbString + listFilm[position].rating.toString()
 
@@ -43,7 +43,7 @@ class FragmentOneRecyclerAdapter(private val listFilm: ArrayList<Film>, private 
         return listFilm.size
     }
 
-    class NewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class NewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val posterView: ImageView = itemView.findViewById(R.id.posterView)
         val textView: TextView = itemView.findViewById(R.id.filmName)
         val textViewRating: TextView = itemView.findViewById(R.id.imdb)
