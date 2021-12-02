@@ -6,17 +6,24 @@ import com.example.movielibrary.R
 import com.example.movielibrary.model.Film
 import com.example.movielibrary.ui.detailsFragment.DetailsFragmentFilm
 import com.example.movielibrary.ui.fragments.FragmentOne
+import com.example.movielibrary.ui.settingInfo.FragmentSetting
 import com.example.movielibrary.ui.fragments.FragmentTwo
+import com.example.movielibrary.ui.settingInfo.FragmentFavourites
+import com.example.movielibrary.ui.settingInfo.FragmentInfo
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        toolbar = findViewById(R.id.toolbar)
+
         setFirstFragment()
         navigationSelected()
+        toolbarMenu()
     }
 
     private fun setFirstFragment(){
@@ -67,6 +74,33 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> false
             }
+        }
+    }
+
+    private fun toolbarMenu(){
+        toolbar.setOnMenuItemClickListener {
+            if(it.itemId == R.id.optionsToolbarSetting){
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.containerMain, FragmentSetting())
+                    .addToBackStack("Stack1")
+                    .commit()
+            }
+            if(it.itemId == R.id.optionsToolbarInfo){
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.containerMain, FragmentInfo())
+                    .addToBackStack("Stack1")
+                    .commit()
+            }
+            if(it.itemId == R.id.optionsToolbarFavourites){
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.containerMain, FragmentFavourites())
+                    .addToBackStack("Stack1")
+                    .commit()
+            }
+            return@setOnMenuItemClickListener false
         }
     }
 
