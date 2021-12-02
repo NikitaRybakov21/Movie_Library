@@ -8,7 +8,8 @@ import com.example.movielibrary.ui.detailsFragment.DetailsFragmentFilm
 import com.example.movielibrary.ui.fragments.FragmentOne
 import com.example.movielibrary.ui.settingInfo.FragmentSetting
 import com.example.movielibrary.ui.fragments.FragmentTwo
-import com.example.movielibrary.ui.settingInfo.FragmentFavourites
+import com.example.movielibrary.ui.settingInfo.ContactsFragment
+import com.example.movielibrary.ui.settingInfo.FragmentHistory
 import com.example.movielibrary.ui.settingInfo.FragmentInfo
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -70,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.options3 -> {
 
+
                     true
                 }
                 else -> false
@@ -96,7 +98,14 @@ class MainActivity : AppCompatActivity() {
             if(it.itemId == R.id.optionsToolbarFavourites){
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.containerMain, FragmentFavourites())
+                    .replace(R.id.containerMain, FragmentHistory() )
+                    .addToBackStack("Stack1")
+                    .commit()
+            }
+            if(it.itemId == R.id.contacts){
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.containerMain, ContactsFragment.newInstance() )
                     .addToBackStack("Stack1")
                     .commit()
             }

@@ -10,6 +10,10 @@
 
     <item
         android:id="@+id/optionsToolbarFavourites"
-        android:title="@string/favourites" />
+        android:title="@string/history" />
+
+    <item
+        android:id="@+id/contacts"
+        android:title="@string/contacts" />
 
 </menu>

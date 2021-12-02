@@ -45,4 +45,16 @@
 
     <string name="ratingTitle">Рейтинг кинокритиков _</string>
     <string name="textHead">Кино афиша</string>
+    <string name="string18">Отображение контента для взрослых</string>
+    <string name="DarkTheme">Включение ночной темы</string>
+    <string name="stringInfo">Приложение для поиска информации фильмов и сериалов</string>
+    <string name="favourites">Favourites</string>
+    <string name="favouritesTextHead">Избранное</string>
+    <string name="history">History</string>
+    <string name="history2">История просмотра</string>
+    <string name="text4">Text555</string>
+    <string name="delete_history">Delete History</string>
+    <string name="need_permissions_to_read_contacts">Предоставьте разрешение</string>
+    <string name="contacts">Contacts</string>
+    <string name="Contacts">Контакты</string>
 </resources>
