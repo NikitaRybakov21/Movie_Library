@@ -12,13 +12,16 @@ import com.example.movielibrary.viewModel.AppState
 import com.example.movielibrary.viewModel.FragmentTwoViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.lifecycle.Observer
+import com.example.movielibrary.dataBase.SqLiteDatabase
 import com.example.movielibrary.ui.main.MainActivity
 
 class FragmentTwo : Fragment() {
     private val viewModel: FragmentTwoViewModel by viewModel()
     private var _binding: FragmentTwoBinding? = null
     private val binding get() = _binding!!
+
     private lateinit var mainActivity: MainActivity
+    private lateinit var db : SqLiteDatabase
 
     private val cinemaID = listOf(326,325,327,111543,329)
 
@@ -35,6 +38,8 @@ class FragmentTwo : Fragment() {
         viewModel.getLiveData().observe(viewLifecycleOwner, observer)
 
         viewModel.getListFilm(cinemaID)
+
+        db = SqLiteDatabase(requireContext())
     }
 
     private fun createRecyclerView(listFilm: ArrayList<Film>) {
@@ -66,6 +71,7 @@ class FragmentTwo : Fragment() {
                 addFragmentDetails(infoFilm)
 
                 setScreenLoading(View.GONE)
+                addHistoryFilm(infoFilm)
             }
             is AppState.Loading -> {
                 progressBarRecyclerTwo.visibility = View.VISIBLE
@@ -83,6 +89,10 @@ class FragmentTwo : Fragment() {
     private fun setScreenLoading(visibility: Int) = with(binding){
         progressBarTwo.visibility = visibility
         viewLoadingTwo.visibility = visibility
+    }
+
+    private fun addHistoryFilm(infoFilm: Film){
+        db.insertFilm(infoFilm.filmName,"10" ,infoFilm.id_kp)
     }
 
     fun setMainActivity(mainActivity: MainActivity){
