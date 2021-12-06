@@ -45,4 +45,26 @@
 
     <string name="ratingTitle">Рейтинг кинокритиков _</string>
     <string name="textHead">Кино афиша</string>
+    <string name="string18">Отображение контента для взрослых</string>
+    <string name="DarkTheme">Включение ночной темы</string>
+    <string name="stringInfo">Приложение для поиска информации фильмов и сериалов</string>
+    <string name="favourites">Favourites</string>
+    <string name="favouritesTextHead">Избранное</string>
+    <string name="history">History</string>
+    <string name="history2">История просмотра</string>
+    <string name="text4">Text555</string>
+    <string name="delete_history">Delete History</string>
+    <string name="need_permissions_to_read_contacts">Предоставьте разрешение</string>
+    <string name="contacts">Contacts</string>
+    <string name="Contacts">Контакты</string>
+    <string name="search">Поиск</string>
+
+    <string name="dialog_title_gps_turned_off">dialog_title_gps_turned_off</string>
+    <string name="dialog_message_last_location_unknown">dialog_message_last_location_unknown</string>
+    <string name="dialog_message_last_known_location">dialog_message_last_known_location</string>
+    <string name="dialog_button_close">dialog_button_close</string>
+
+    <string name="dialog_address_title">dialog_address_title1</string>
+    <string name="dialog_address_get_weather">dialog_address_get_weather</string>
+
 </resources>
