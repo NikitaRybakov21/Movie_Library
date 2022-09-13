@@ -9,23 +9,35 @@ class SqLiteDatabase(context: Context) {
     private val dataBase : SQLiteDatabase = AppSqliteHelper(context).writableDatabase
 
     @SuppressLint("Range", "Recycle")
-    fun getQueryFilm(id : String,attribute : String ) : String {
+    fun queryFilm(id : String,attribute : String ) : ArrayList<String> {
+
+        val array: ArrayList<String> = ArrayList(16)
         val cursor = dataBase.query(
-            "Film",          arrayOf(attribute),
-            "${"id"} = ?", arrayOf(id),
+            "Film", arrayOf(attribute),
+            null,null,
             null,null,null
         )
-        cursor.moveToFirst()
-        val data = cursor.getString(cursor.getColumnIndex(attribute))
 
-        cursor.close()
-        return data
+        if(cursor.moveToFirst()) {
+            do {
+                array.add(cursor.getString(cursor.getColumnIndex(attribute)))
+            } while (cursor.moveToNext())
+        }
+
+        return array
     }
 
-    fun insertFilm(name : String, notes : String){
-        dataBase.insert("Film",
-                 null, contentValuesOf("name" to name, "notes" to notes)
+    fun insertFilm(name : String, timeView : String, id_kp : Int){
+        dataBase.insert("Film", null,
+            contentValuesOf(
+            "name" to name,
+            "timeView" to timeView,
+            "id_kp" to id_kp)
         )
+    }
+
+    fun deleteTable(){
+        dataBase.delete("Film", null, null);
     }
 
 }

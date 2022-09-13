@@ -4,7 +4,8 @@ import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
 
 object ApiUtils {
-    const val baseUrl = "https://api.kinopoisk.dev/"
+    const val baseUrl = "https://api.themoviedb.org/3/"
+   // const val baseUrl = "https://api.themoviedb.org/3/movie/"
 
     fun getOkHTTPBuilderWithHeaders(): OkHttpClient {
         val httpClient = OkHttpClient.Builder()
@@ -17,7 +18,7 @@ object ApiUtils {
 
             val original = chain.request()
             val request = original.newBuilder()
-             //   .header("X-Yandex-API-Key", "7a436743-4c9e-415e-9edc-cc6b53f7c987")
+           //   .header("X-Yandex-API-Key", "7a436743-4c9e-415e-9edc-cc6b53f7c987")
                 .method(original.method(), original.body())
                 .build()
 

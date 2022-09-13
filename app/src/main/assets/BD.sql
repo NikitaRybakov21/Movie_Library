@@ -3,8 +3,9 @@ PRAGMA foreign_key = ON;
 CREATE TABLE "Film"(
 "id" INTEGER PRIMARY KEY,
 "name" TEXT,
-"notes" TEXT,
+"id_kp" INTEGER,
 "timeView" TEXT
 );
+
 
 

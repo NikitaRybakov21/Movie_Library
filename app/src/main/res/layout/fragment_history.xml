@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/history2"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textSize="25sp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonDeleteHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="@dimen/margin_top"
+        app:backgroundTint="#E44848"
+        android:text="@string/delete_history"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="@dimen/margin"
+        android:layout_marginTop="@dimen/margin_top"
+        android:background="#C3C8D3" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/containerDetailsHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_top" />
+
+</LinearLayout>

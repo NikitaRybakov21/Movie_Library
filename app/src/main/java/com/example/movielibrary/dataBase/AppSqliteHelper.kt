@@ -4,10 +4,9 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class AppSqliteHelper(private val appContext: Context) : SQLiteOpenHelper(appContext,"dataBaseFilm3",null,1) {
+class AppSqliteHelper(private val appContext: Context) : SQLiteOpenHelper(appContext,"data",null,1) {
 
     override fun onCreate(p0: SQLiteDatabase?) {
-
         val sql = appContext.assets.open("BD.sql").bufferedReader().use {
             it.readText()
         }

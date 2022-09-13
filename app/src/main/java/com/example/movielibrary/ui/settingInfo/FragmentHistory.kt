@@ -6,32 +6,42 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.movielibrary.R
 import com.example.movielibrary.dataBase.AppSqliteHelper
 import com.example.movielibrary.dataBase.SqLiteDatabase
+import com.example.movielibrary.ui.main.MainActivity
 
-class FragmentFavourites : Fragment(){
+class FragmentHistory : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_favourites,container,false)
+       return inflater.inflate(R.layout.fragment_history,container,false) as LinearLayout
     }
 
     @SuppressLint("Recycle", "Range")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val textFavourites = view.findViewById<TextView>(R.id.favourites1)
-        val textFavourites2 = view.findViewById<TextView>(R.id.favourites2)
+        createDetailsHistory()
 
         val sqlDB = SqLiteDatabase(requireContext())
 
-        sqlDB.insertFilm("Дюна","заметка о дюне")
-        sqlDB.insertFilm("Матрица","заметка о Матрице")
+        val button = view.findViewById<Button>(R.id.buttonDeleteHistory)
+        button.setOnClickListener {
+            sqlDB.deleteTable()
+            createDetailsHistory()
+        }
+    }
 
-        textFavourites.text = sqlDB.getQueryFilm("1","name")
-        textFavourites2.text = sqlDB.getQueryFilm("2","name")
+    private fun createDetailsHistory(){
+        childFragmentManager
+            .beginTransaction()
+            .replace(R.id.containerDetailsHistory,FragmentDetailsHistory())
+            .commit()
     }
 
 }
+
+

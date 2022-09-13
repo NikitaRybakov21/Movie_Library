@@ -1,24 +1,15 @@
-package com.example.movielibrary
+/*
+ * Copyright 2010-2020 JetBrains s.r.o. and Kotlin Programming Language contributors.
+ * Use of this source code is governed by the Apache 2.0 license that can be found in the license/LICENSE.txt file.
+ */
 
-import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.ext.junit.runners.AndroidJUnit4
+package org.jetbrains.kotlin.project.model
 
-import org.junit.Test
-import org.junit.runner.RunWith
-
-import org.junit.Assert.*
+data class KotlinModuleDependency(val moduleIdentifier: KotlinModuleIdentifier) {
+    override fun toString(): String = "dependency $moduleIdentifier"
+}
 
 /**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
+ * TODO other kinds of dependencies: non-Kotlin: cinterop, CocoaPods, NPM dependencies?
+ *  support with different moduleIdentifiers? Introduce other kinds of dependencies than ModuleDependency?
  */
-@RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
-    @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.movielibrary", appContext.packageName)
-    }
-}
