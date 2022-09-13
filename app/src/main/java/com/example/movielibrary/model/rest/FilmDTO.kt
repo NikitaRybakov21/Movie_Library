@@ -1,21 +1,22 @@
 package com.example.movielibrary.model.rest
 
-data class MovieDTO(
-    val name: String,
-    val year: Int,
-    val description: String,
+import com.google.gson.annotations.SerializedName
 
-    val poster: FilmDTO,
-    val rating: FilmDTO,
-    val genres: ArrayList<FilmDTO>,
-    val budget: FilmDTO
+data class ArrayMovieDTO(@field:SerializedName("results") val result: ArrayList<MovieDTO>)
+
+data class MovieDTO(
+    @field:SerializedName("original_title") val name: String,
+    @field:SerializedName("release_date") val year: String,
+    @field:SerializedName("overview") val description: String,
+
+    @field:SerializedName("poster_path") val poster: String,
+    @field:SerializedName("vote_average") val rating: Float,
+    @field:SerializedName("genres") val genres: ArrayList<FilmDTO>,
+    @field:SerializedName("budget") val budget: Int
 )
 
 data class FilmDTO(
-    val url: String,
-    val imdb: Float,
-    val name: String,
-    var value: String = "_"
+    @field:SerializedName("name") val name: String,
 )
 
 

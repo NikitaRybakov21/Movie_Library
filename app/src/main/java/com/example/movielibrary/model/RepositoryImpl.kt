@@ -3,10 +3,10 @@ package com.example.movielibrary.model
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.movielibrary.model.rest.FilmRepo
-import com.example.movielibrary.model.rest.LoadMovie
 
 class RepositoryImpl : Repository {
-    private val API_KEY = "ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06"
+   // private val API_KEY = "ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06"
+    private val API_KEY = "274f828ad283bd634ef4fc1ee4af255f"
 
     private var listFilm: ArrayList<Film> = ArrayList(16)
     private var listFilmTop: ArrayList<Film> = ArrayList(16)
@@ -49,31 +49,24 @@ class RepositoryImpl : Repository {
 
     @RequiresApi(Build.VERSION_CODES.N)
     private fun loadMovie(listCinemaID: List<Int>){
-        for (i in listCinemaID.indices) {
-          //val film = LoadMovie.loadMovie(listCinemaID[i])
-            val film = FilmRepo.api.getFilm(listCinemaID[i],"id",API_KEY).execute().body()
+        val films = FilmRepo.api.getFilm(API_KEY).execute().body()
 
-            if (film != null) {
-                listFilm.add(Film(film.name, film.poster.url, film.rating.imdb, film.genres[0].name,
-                                  film.year, film.description, "_ "))
-            }
+        films?.result?.forEach { film ->
+            listFilm.add(Film(film.name, "https://api.themoviedb.org" + film.poster, film.rating, "Фантастика",
+                1987, film.description, " ",555))
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun loadMovieTop(listCinemaID: List<Int>){
-        for (i in listCinemaID.indices) {
-          //val film = LoadMovie.loadMovie(listCinemaID[i])
-            val film = FilmRepo.api.getFilm(listCinemaID[i],"id",API_KEY).execute().body()
+    private fun loadMovieTop(listCinemaID: List<Int>) {
+        val films = FilmRepo.api.getFilm(API_KEY).execute().body()
 
-            if (film != null) {
-                listFilmTop.add(Film(film.name, film.poster.url, film.rating.imdb, film.genres[0].name,
-                    film.year, film.description, "_ "))
-            }
+        films?.result?.forEach { film ->
+            listFilm.add(
+                Film(film.name, "https://api.themoviedb.org" + film.poster, film.rating, "Фантастика",
+                    1987, film.description, " ", 555))
         }
     }
-
 }
 
 
-    

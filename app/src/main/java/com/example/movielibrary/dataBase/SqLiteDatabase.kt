@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import androidx.core.content.contentValuesOf
-import com.example.movielibrary.model.Film
 
 class SqLiteDatabase(context: Context) {
     private val dataBase : SQLiteDatabase = AppSqliteHelper(context).writableDatabase
@@ -25,7 +24,6 @@ class SqLiteDatabase(context: Context) {
             } while (cursor.moveToNext())
         }
 
-        cursor.close()
         return array
     }
 

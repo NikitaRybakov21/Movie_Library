@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movielibrary.R
+import com.example.movielibrary.dataBase.SqLiteDatabase
 import com.example.movielibrary.databinding.FragmentOneBinding
 import com.example.movielibrary.model.Film
 import com.example.movielibrary.ui.main.MainActivity
@@ -25,16 +26,20 @@ class FragmentOne : Fragment() {
     private lateinit var customView: View
     private lateinit var container: ViewGroup
     private lateinit var mainActivity: MainActivity
+    private lateinit var db : SqLiteDatabase
 
     private val listGenre: ArrayList<String> = ArrayList(16)
-    private val cinemaID = listOf(706019,1313395,1227967,409424,1294875)
+    // private val cinemaID = listOf(706019,1313395,1227967,409424,1294875)
+       private val cinemaID = listOf(706019)
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentOneBinding.inflate(inflater, container, false)
 
-        if (container != null) {
-            this.container = container
+        container?.let {
+            this.container = it
         }
+
         return binding.root
     }
 
@@ -47,6 +52,8 @@ class FragmentOne : Fragment() {
 
         viewModel.getListFilm(cinemaID)
         createCustomMenu()
+
+        db = SqLiteDatabase(requireContext())
     }
 
     private fun createRecyclerView(listFilm: ArrayList<Film>) {
@@ -69,6 +76,7 @@ class FragmentOne : Fragment() {
                 val infoFilm = appState.infoFilm
                 addFragmentDetails(infoFilm)
 
+                addHistoryFilm(infoFilm)
                 setScreenLoading(View.GONE)
             }
             is AppState.Loading -> {
@@ -126,6 +134,10 @@ class FragmentOne : Fragment() {
 
     private fun addFragmentDetails(infoFilm: Film){
         mainActivity.addFragmentDetails(infoFilm)
+    }
+
+    private fun addHistoryFilm(infoFilm: Film){
+        db.insertFilm(infoFilm.filmName,"10" ,infoFilm.id_kp)
     }
 
     override fun onDestroyView() {
